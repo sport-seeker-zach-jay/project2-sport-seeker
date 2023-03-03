@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport Seeker</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <img src="./assets/Header.jpeg" alt="Soccer fans cheering in packed stadium">
+        <h1>SPORT SEEKER</h1>
+    </header>
 
+    <main>
+    <!-- PROMPT --> 
+        <p>Select your city and favourite sport from the dropdown menus below to view upcoming events in your area!</p>
+      
+    <!-- FORM -->
+        <form action="#" method="GET" name="sportSeeker">
+
+            <!-- CITY PICKER -->
+            <label for="location">LOCATION</label>
+            <select id="location" type="text" name="location">
+                <option value disabled selected>Please choose a city</option>
+            <!-- Add Options Later -->
+            </select>
+
+            <!-- SPORT PICKER -->
+            <label for="sport">SPORT</label>
+            <select id="sport" type="text" name="sport">
+                <option value disabled selected>Please choose your favourite sport</option>
+            <!-- Add Options Later -->
+            </select>
+
+            <button type="submit">GO!</button>
+        </form>
+
+    <!-- Appended Results to go here -->
+        <h2>Tickets available in your area</h2>
+        <ul class="results"></ul>
+
+    </main>
+
+    <footer>Created at Juno College©</footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="app.js"></script>
+</body>
+
+</html>
