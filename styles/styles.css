@@ -5,6 +5,18 @@
 }
 
 html {
+  font-size: 125%;
+}
+
+h1, h2, p {
+  font-family: "Revalia";
+}
+
+button, option, label {
+  font-family: "Open Sans";
+}
+
+html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

@@ -1,7 +1,23 @@
+@import "./variables";
+
 .wrapper {
     max-width: 1440px;
     width: 95%;
     margin: 0 auto;
 }
 
-// dropdown menu styles
+html {
+    font-size: 125%;
+}
+
+h1, h2, p {
+    font-family: $mainFont;
+}
+
+button, option, label {
+    font-family: $formFont;
+}
+
+
+
+// form (dropdown menu), h1, h2, p, ul, li baseStyles
