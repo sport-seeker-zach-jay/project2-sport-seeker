@@ -1,1 +1,10 @@
 @use "./variables";
+
+.trim {
+  max-height: 400px;
+  overflow: hidden;
+  & img {
+    height: 90vh;
+    width: 100%;
+  }
+ } 

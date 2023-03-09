@@ -1,5 +1,6 @@
 @import "./variables";
 
+// FONTS
 .wrapper {
     max-width: 1440px;
     width: 95%;
@@ -8,16 +9,50 @@
 
 html {
     font-size: 125%;
+    background-color: $secondary;
 }
 
 h1, h2, p {
     font-family: $mainFont;
+    text-align: center;
 }
 
-button, option, label {
+button, select, label, li {
     font-family: $formFont;
 }
 
+// SIZES AND COLORS
+h1 {
+    font-size: 5rem;
+    color: $tertiary;
+}
 
+h2 {
+    font-size: 3rem;
+    color: $tertiary;
+}
 
-// form (dropdown menu), h1, h2, p, ul, li baseStyles
+p {
+    font-size: 1.8rem;
+    color: $primary;
+}
+
+label, select {
+    font-size: 1.5rem;
+    color: $tertiary;
+}
+button {
+    font-size: 2.25rem;
+    background-color: $primary;
+    width: 200px;
+    border-radius: 10px;
+}
+
+option {
+    font-size: 1.8rem;
+    color: $tertiary;
+}
+
+li {
+    font-size: 1.5rem;
+}

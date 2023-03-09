@@ -16,7 +16,9 @@
 <body>
     <!-- HEADER -->
     <header>
-        <img src="./assets/Header.jpeg" alt="Soccer fans cheering in packed stadium">
+        <div class="trim">
+            <img src="./assets/Header.jpeg" alt="Soccer fans cheering in packed stadium">
+        </div>
         <div class="wrapper">
             <h1>SPORT SEEKER</h1>        
         </div><!-- .wrapper ends -->
@@ -31,38 +33,43 @@
         <!-- FORM -->
             <form action="#" method="GET" name="sportSeeker">
 
-                <!-- CITY PICKER -->
-                <label for="location">LOCATION</label>
-                <select id="location" type="text" name="location">
-                    <option value disabled selected>Please choose a city</option>
-                <!-- Cities -->
-                    <optgroup label="Canada">
-                        <option value="toronto">Toronto</option>
-                        <option value="ottawa">Ottawa</option>
-                        <option value="vancouver">Vancouver</option>
-                        <option value="montreal">Montreal</option>
-                        <option value="calgary">Calgary</option>
-                    </optgroup>
-                    <optgroup label="United States">
-                        <option value="ny">New York City</option>
-                        <option value="la">Los Angeles</option>
-                        <option value="chicago">Chicago</option>
-                        <option value="houston">Houston</option>
-                        <option value="washington">Washington D.C.</option>
-                    </optgroup>
-                </select>
-
-                <!-- SPORT PICKER -->
-                <label for="sport">SPORT</label>
-                <select id="sport" type="text" name="sport">
-                    <option value disabled selected>Please choose your favourite sport</option>
-                <!-- Sport -->
-                    <option value="basketball">Basketball</option>
-                    <option value="hockey">Hockey</option>
-                    <option value="baseball">Baseball</option>
-                    <option value="football">Football</option>
-                    <option value="soccer">Soccer</option>
-                </select>
+                <div class="fields">
+                    <!-- CITY PICKER -->
+                    <div class="locationForm">
+                        <label for="location">LOCATION</label>
+                        <select id="location" type="text" name="location">
+                            <option value disabled selected>Please choose a city</option>
+                        <!-- Cities -->
+                            <optgroup label="Canada">
+                                <option value="toronto">Toronto</option>
+                                <option value="ottawa">Ottawa</option>
+                                <option value="vancouver">Vancouver</option>
+                                <option value="montreal">Montreal</option>
+                                <option value="calgary">Calgary</option>
+                            </optgroup>
+                            <optgroup label="United States">
+                                <option value="ny">New York City</option>
+                                <option value="la">Los Angeles</option>
+                                <option value="chicago">Chicago</option>
+                                <option value="houston">Houston</option>
+                                <option value="washington">Washington D.C.</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <!-- SPORT PICKER -->
+                    <div class="sportForm">
+                        <label for="sport">SPORT</label>
+                        <select id="sport" type="text" name="sport">
+                            <option value disabled selected>Please choose your favourite sport</option>
+                        <!-- Sport -->
+                            <option value="basketball">Basketball</option>
+                            <option value="hockey">Hockey</option>
+                            <option value="baseball">Baseball</option>
+                            <option value="football">Football</option>
+                            <option value="soccer">Soccer</option>
+                        </select>
+                    </div>
+                </div>
 
                 <button type="submit">GO!</button>
             </form>

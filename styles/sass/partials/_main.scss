@@ -1,1 +1,17 @@
 @use "./variables";
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & .fields {
+        display: flex;
+    }
+    & .sportForm, .locationForm {
+        display: flex;
+        flex-direction: column;
+    }
+    & button {
+        margin-top: 25px;
+    }
+} 
