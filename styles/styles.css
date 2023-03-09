@@ -244,6 +244,7 @@ html {
 
 h1, h2, p {
   font-family: "Revalia";
+  text-align: center;
 }
 
 button, select, label, li {
@@ -253,7 +254,6 @@ button, select, label, li {
 h1 {
   font-size: 5rem;
   color: #909090;
-  text-align: center;
 }
 
 h2 {
@@ -274,6 +274,8 @@ label, select {
 button {
   font-size: 2.25rem;
   background-color: #97FB57;
+  width: 200px;
+  border-radius: 10px;
 }
 
 option {
@@ -290,8 +292,38 @@ li {
   overflow: hidden;
 }
 .trim img {
-  height: 60vh;
+  height: 90vh;
   width: 100%;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+form .fields {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+form .sportForm, form .locationForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+form button {
+  margin-top: 25px;
 }
 
 footer {
