@@ -1,5 +1,3 @@
-@import "./variables";
-
 // FONTS
 .wrapper {
     max-width: 1440px;
@@ -35,6 +33,7 @@ h2 {
 p {
     font-size: 1.8rem;
     color: $primary;
+    line-height: 2.5rem;
 }
 
 label, select {
