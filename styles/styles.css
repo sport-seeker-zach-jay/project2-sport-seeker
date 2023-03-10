@@ -264,6 +264,7 @@ h2 {
 p {
   font-size: 1.8rem;
   color: #97FB57;
+  line-height: 2.5rem;
 }
 
 label, select {
@@ -292,7 +293,7 @@ li {
   overflow: hidden;
 }
 .trim img {
-  height: 90vh;
+  height: 60vh;
   width: 100%;
 }
 
@@ -312,6 +313,13 @@ form .fields {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: space-between;
+      -ms-flex-align: space-between;
+          align-items: space-between;
 }
 form .sportForm, form .locationForm {
   display: -webkit-box;
@@ -322,15 +330,24 @@ form .sportForm, form .locationForm {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+form .sportForm {
+  padding-top: 50px;
+}
 form button {
-  margin-top: 25px;
+  margin-top: 35px;
+}
+form select {
+  width: 600px;
 }
 
 footer {
-  background-color: black;
   color: #97FB57;
   height: 5vh;
   text-align: center;
   padding: 5px 0;
   font-family: "Open Sans";
+}
+footer a {
+  text-decoration: none;
+  color: #97FB57;
 }

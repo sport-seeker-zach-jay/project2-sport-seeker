@@ -1,17 +1,25 @@
-@use "./variables";
-
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
     & .fields {
         display: flex;
+        flex-direction: column;
+        align-items: space-between;
     }
     & .sportForm, .locationForm {
         display: flex;
         flex-direction: column;
+        // align-items: space-evenly;
+
+    }
+    & .sportForm {
+        padding-top: 50px;
     }
     & button {
-        margin-top: 25px;
+        margin-top: 35px;
+    }
+    & select {
+        width: 600px;
     }
 } 
