@@ -31,17 +31,20 @@ app.displayData = (data) => {
     app.form.addEventListener('submit', function (e) {
         // prevent the browser from refreshing (preventDefault)
         e.preventDefault();
+        // Toggle H2 to display
+        const h2 = document.querySelector('h2')
+        h2.style.display = 'block';
         // store the user's choice of location
         const location = document.getElementById('location').value;
         // store the chosen type of sport
         const sport = document.getElementById('sport').value;
     })
     const ul = document.querySelector('.results');
-    app.data.forEach((game) => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-        <p>${game.name}</p>`
-    })
+    // app.data.forEach((game) => {
+    //     const listItem = document.createElement('li');
+    //     listItem.innerHTML = `
+    //     <p>${game.name}</p>`
+    // })
 }
 
 
