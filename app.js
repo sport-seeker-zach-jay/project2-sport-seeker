@@ -35,7 +35,7 @@ app.displayData = (data) => {
         const h2 = document.querySelector('h2')
         h2.style.display = 'block';
         // store the user's choice of location
-        const location = document.getElementById('location').value;
+        const location = document.getElementById('city').value;
         // store the chosen type of sport
         const sport = document.getElementById('sport').value;
     })
