@@ -6,16 +6,17 @@ app.url = "https://proxy.junocollege.com/https://app.ticketmaster.com/discovery/
 app.getData = () => {
     const url = new URL(app.url);
     url.search = new URLSearchParams({
-        apikey: app.key
+        apikey: app.key,
+        classificationName: "Sports"
     });
     fetch(url)
         .then(response => {
             return response.json();
         })
-        .then(jsonResult => {
-            console.log(jsonResult);
-            app.displayData(jsonResult);
-        });
+        .then(jsonResult => {     
+            console.log(jsonResult._embedded.events);
+            app.displayData(jsonResult._embedded.events);
+        });  
 }
 
 // A form that prompts users to select both a Location ("City") and Sport from two separate dropdown menus
@@ -31,32 +32,42 @@ app.displayData = (data) => {
     app.form.addEventListener('submit', function (e) {
         // prevent the browser from refreshing (preventDefault)
         e.preventDefault();
+        // Toggle H2 to display
+        const h2 = document.querySelector('h2')
+        h2.style.display = 'block';
         // store the user's choice of location
-        const location = document.getElementById('location').value;
+        const city = document.getElementById('city').value;
         // store the chosen type of sport
         const sport = document.getElementById('sport').value;
-    })
-    const ul = document.querySelector('.results');
-    app.data.forEach((game) => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-        <p>${game.name}</p>`
+        
+        // Append results below Form Submit button
+        data.forEach((game) => {
+            const results = document.querySelector('.results');
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+            <p>${game.name}</p>`
+            // results.appendChild(listItem);       
+        })
     })
 }
 
 
-// Append results below Form Submit button
+
 // Display all upcoming sporting events in user's selected city
-    // Team Names (who vs. who) - NAME
-    // Location (Stadium Name & City) -> embedded -> venues --> 0 --> name (ARENA) & city, name, country
-    // Date of the event - DATES - START --> LOCAL DATE & START TIME
-    // Link to Purchase tickets  --> url
-    // Seat Map *(stretch goal) - seatmap
-    // Team Logos --> embedded --> attractions --> 0 and 1
+
+    // NAME = console.log(game.name)
+    // CITY = console.log(game._embedded.venues[0].city.name)
+    // ARENA = console.log(game._embedded.venues[0].name)
+    // DATE = console.log(game.dates.start.localDate) / console.log(game.dates.start.localTime)
+    // TICKET purchase (link) = console.log(game.url)
+    // Seating Map (link) = console.log(game.seatmap.staticUrl)
+    // LOGOS (pictures) = console.log(game._embedded.attractions[0].images[0].url) / console.log(game._embedded.attractions[1].images[0].url)
+
+
+
 
 app.init = () => {
     app.getData();
-    app.displayData();
 }
 
 app.init();
