@@ -26,13 +26,13 @@ app.getData = () => {
 
 app.displayData = (sportsArray) => {
     // target form
-    app.form = document.querySelector('form');
+    app.form = document.querySelector(`form`);
     // Listen to the button click event below the form for Submission ('Go!)
-    app.form.addEventListener('submit', function (e) {
+    app.form.addEventListener(`submit`, function (e) {
         // prevent the browser from refreshing (preventDefault)
         e.preventDefault();
         // Toggle H2 to display
-        const h2 = document.querySelector('h2')
+        const h2 = document.querySelector(`h2`)
         h2.style.display = 'block';
         // Target the node to attach to
         const results = document.querySelector(`.results`);
@@ -41,7 +41,7 @@ app.displayData = (sportsArray) => {
         // Build HTML using the data
         sportsArray.forEach((game) => {
             // Container for each event
-            const listItem = document.createElement('li');
+            const listItem = document.createElement(`li`);
             // Event Name
             const event = document.createElement(`h3`);
             event.innertext = game.name;
