@@ -1,15 +1,13 @@
 const app = {};
 
-app.key = "bGfNSJ0SadLnnsgq82qJA8KXoy4bsOhM";
-app.url = "https://proxy.junocollege.com/https://app.ticketmaster.com/discovery/v2/events";
-
 app.getData = () => {
-    const url = new URL(app.url);
-    url.search = new URLSearchParams({
+    app.key = `bGfNSJ0SadLnnsgq82qJA8KXoy4bsOhM`;
+    app.url = new URL(`https://proxy.junocollege.com/https://app.ticketmaster.com/discovery/v2/events`);
+    app.url.search = new URLSearchParams({
         apikey: app.key,
-        classificationName: "Sports"
+        classificationName: `Sports`
     });
-    fetch(url)
+    fetch(app.url)
         .then(response => {
             return response.json();
         })
@@ -25,7 +23,8 @@ app.getData = () => {
 // Upon form submission, make an AJAX request to retrieve API data based on the user's form selections
 
 // create a method that displays data 
-app.displayData = (data) => {
+
+app.displayData = (sportsArray) => {
     // target form
     app.form = document.querySelector('form');
     // Listen to the button click event below the form for Submission ('Go!)
@@ -35,22 +34,42 @@ app.displayData = (data) => {
         // Toggle H2 to display
         const h2 = document.querySelector('h2')
         h2.style.display = 'block';
-        // store the user's choice of location
-        const city = document.getElementById('city').value;
-        // store the chosen type of sport
-        const sport = document.getElementById('sport').value;
-        
-        // Append results below Form Submit button
-        data.forEach((game) => {
-            const results = document.querySelector('.results');
+        // Target the node to attach to
+        const results = document.querySelector(`.results`);
+        // Fresh search query with each selection
+        results.innerHTML = ``;
+        // Build HTML using the data
+        sportsArray.forEach((game) => {
+            // Container for each event
             const listItem = document.createElement('li');
-            listItem.innerHTML = `
-            <p>${game.name}</p>`
-            // results.appendChild(listItem);       
-        })
-    })
-}
+            // Event Name
+            const event = document.createElement(`h3`);
+            event.innertext = game.name;
+            // Arena Name
+            const arena = document.createElement(`p`);
+            arena.innerText = game._embedded.venues[0].name;
+            // Event Date
+            const date = document.createElement(`p`);
+            date.innerText = game.dates.start.localDate
+            // Event Time
+            const time = document.createElement(`p`);
+            time.innerText = game.dates.start.localTime;
+            // Purchase Tickets
+            const tickets = document.createElement(`a`);
+            tickets.innerText = game.url;
 
+            // Collect all elements together
+            listItem.appendChild(event);
+            listItem.appendChild(arena);
+            listItem.appendChild(date);
+            listItem.appendChild(time);
+            listItem.appendChild(tickets);
+
+            // Append to container
+            results.appendChild(listItem);
+        }); 
+    });
+}
 
 
 // Display all upcoming sporting events in user's selected city
@@ -62,8 +81,6 @@ app.displayData = (data) => {
     // TICKET purchase (link) = console.log(game.url)
     // Seating Map (link) = console.log(game.seatmap.staticUrl)
     // LOGOS (pictures) = console.log(game._embedded.attractions[0].images[0].url) / console.log(game._embedded.attractions[1].images[0].url)
-
-
 
 
 app.init = () => {
