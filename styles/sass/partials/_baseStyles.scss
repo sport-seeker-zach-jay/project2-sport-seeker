@@ -52,7 +52,19 @@ option {
     color: $tertiary;
 }
 
+ul {
+    list-style: none;
+}
 li {
     font-size: 1.5rem;
+    background-color: $quaternary;
+    border-radius: 10px;
+    & p, a {
+        color: $secondary;
+        text-align: left;
+        padding-left: 20px;
+    }
 }
+
+
 
