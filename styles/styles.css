@@ -242,7 +242,7 @@ html {
   background-color: #121212;
 }
 
-h1, h2, p {
+h1, h2, p, a {
   font-family: "Revalia";
   text-align: center;
 }
@@ -297,6 +297,17 @@ li p, li a {
   color: #121212;
   text-align: left;
   padding-left: 20px;
+}
+li a {
+  text-decoration: none;
+  width: 200px;
+  height: 25px;
+  background: #97FB57;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  line-height: 25px;
+  font-size: 2.25rem;
 }
 
 .trim {

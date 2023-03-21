@@ -59,7 +59,8 @@ app.displayData = (sportsArray) => {
             time.innerText = game.dates.start.localTime;
             // Purchase Tickets
             const tickets = document.createElement(`a`);
-            tickets.innerText = game.url;
+            tickets.innerText = `Purchase Tickets`;
+            tickets.href = game.url;
 
             // Collect all elements together
             listItem.appendChild(event);
