@@ -43,8 +43,11 @@ app.displayData = (sportsArray) => {
             // Container for each event
             const listItem = document.createElement(`li`);
             // Event Name
-            const event = document.createElement(`h3`);
-            event.innertext = game.name;
+            const event = document.createElement(`p`);
+            event.innerText = game.name;
+            // City / State
+            const city = document.createElement(`p`);
+            city.innerText = `${game._embedded.venues[0].city.name}, ${game._embedded.venues[0].state.name}`;
             // Arena Name
             const arena = document.createElement(`p`);
             arena.innerText = game._embedded.venues[0].name;
@@ -60,6 +63,7 @@ app.displayData = (sportsArray) => {
 
             // Collect all elements together
             listItem.appendChild(event);
+            listItem.appendChild(city);
             listItem.appendChild(arena);
             listItem.appendChild(date);
             listItem.appendChild(time);
