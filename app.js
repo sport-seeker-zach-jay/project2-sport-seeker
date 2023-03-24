@@ -1,43 +1,35 @@
 const app = {};
 
-app.getData = () => {
+// Method that grabs Data from API
+app.getData = (city, sport) => {
     app.key = `bGfNSJ0SadLnnsgq82qJA8KXoy4bsOhM`;
     app.url = new URL(`https://proxy.junocollege.com/https://app.ticketmaster.com/discovery/v2/events`);
     app.url.search = new URLSearchParams({
         apikey: app.key,
-        classificationName: `Sports`
+        // id: `KZFzniwnSyZfZ7v7nE`,
+        city: city,
+        classificationName: sport
     });
     fetch(app.url)
         .then(response => {
             return response.json();
+        
         })
         .then(jsonResult => {     
-            console.log(jsonResult._embedded.events);
+            // console.log(jsonResult._embedded.events);
             app.displayData(jsonResult._embedded.events);
         });  
 }
 
-// A form that prompts users to select both a Location ("City") and Sport from two separate dropdown menus
-
-
-// Upon form submission, make an AJAX request to retrieve API data based on the user's form selections
-
-// create a method that displays data 
-
+// Method that Displays Data
 app.displayData = (sportsArray) => {
-    // target form
-    app.form = document.querySelector(`form`);
-    // Listen to the button click event below the form for Submission ('Go!)
-    app.form.addEventListener(`submit`, function (e) {
-        // prevent the browser from refreshing (preventDefault)
-        e.preventDefault();
         // Toggle H2 to display
         const h2 = document.querySelector(`h2`)
         h2.style.display = 'block';
         // Target the node to attach to
         const results = document.querySelector(`.results`);
         // Fresh search query with each selection
-        results.innerHTML = ``;
+        results.innerHTML = '';
         // Build HTML using the data
         sportsArray.forEach((game) => {
             // Container for each event
@@ -73,6 +65,23 @@ app.displayData = (sportsArray) => {
             // Append to container
             results.appendChild(listItem);
         }); 
+        
+    // });
+}
+// Method that grabs User's Dropdown menu selections
+app.getUserInput = () => {
+    // target form
+    app.form = document.querySelector(`form`);
+    // Listen to the button click event below the form for Submission ('Go!)
+    app.form.addEventListener(`submit`, function (e) {
+        // prevent the browser from refreshing (preventDefault)
+        e.preventDefault();
+        // Grab User's Sport Selection
+        const selectSport = document.querySelector(`#sport`).value;
+        // Grab User's City Selection 
+        const selectCity = document.querySelector(`#city`).value;
+        // Pass those selections to the GetData function
+        app.getData(selectCity, selectSport);
     });
 }
 
@@ -89,7 +98,7 @@ app.displayData = (sportsArray) => {
 
 
 app.init = () => {
-    app.getData();
+    app.getUserInput();
 }
 
 app.init();
