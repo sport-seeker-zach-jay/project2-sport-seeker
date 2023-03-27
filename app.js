@@ -27,10 +27,8 @@ app.getData = (city, sport) => {
                 const errorMessage = document.createElement(`h2`);
                 errorMessage.innerText = `Sorry, no tickets for your selected options! Please try again :)`;
                 results.appendChild(errorMessage);
-            } else {
-
-            }
-        })  
+            } 
+        });
 }
 
 // Method that Displays Data
@@ -92,8 +90,12 @@ app.getUserInput = () => {
         const selectSport = document.querySelector(`#sport`).value;
         // Grab User's City Selection 
         const selectCity = document.querySelector(`#city`).value;
-        // Pass those selections to the GetData function
-        app.getData(selectCity, selectSport);
+        // Display data upon submit ONLY if User has selected both options
+        if (selectSport === `` || selectCity === ``) {
+            alert (`Please select both options!`) ;
+        }   else {
+            app.getData(selectCity, selectSport);
+        }
     });
 }
 
