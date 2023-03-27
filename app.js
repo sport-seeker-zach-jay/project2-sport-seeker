@@ -6,30 +6,42 @@ app.getData = (city, sport) => {
     app.url = new URL(`https://proxy.junocollege.com/https://app.ticketmaster.com/discovery/v2/events`);
     app.url.search = new URLSearchParams({
         apikey: app.key,
-        // id: `KZFzniwnSyZfZ7v7nE`,
         city: city,
         classificationName: sport
     });
     fetch(app.url)
         .then(response => {
-            return response.json();
-        
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error(response.statusText);
+            }
         })
         .then(jsonResult => {     
-            // console.log(jsonResult._embedded.events);
             app.displayData(jsonResult._embedded.events);
-        });  
+        })
+        .catch((error) => {
+            if (error.message === `jsonResult._embedded is undefined`) {
+                const results = document.querySelector(`.results`);
+                results.innerHTML = ``;
+                const errorMessage = document.createElement(`h2`);
+                errorMessage.innerText = `Sorry, no tickets for your selected options! Please try again :)`;
+                results.appendChild(errorMessage);
+            } else {
+
+            }
+        })  
 }
 
 // Method that Displays Data
 app.displayData = (sportsArray) => {
-        // Toggle H2 to display
-        const h2 = document.querySelector(`h2`)
-        h2.style.display = 'block';
+        const h2 = document.createElement(`h2`);
+        h2.innerText = `Tickets available in your area`;
         // Target the node to attach to
         const results = document.querySelector(`.results`);
         // Fresh search query with each selection
-        results.innerHTML = '';
+        results.innerHTML = ``;
+        results.appendChild(h2);
         // Build HTML using the data
         sportsArray.forEach((game) => {
             // Container for each event
@@ -45,7 +57,7 @@ app.displayData = (sportsArray) => {
             arena.innerText = game._embedded.venues[0].name;
             // Event Date
             const date = document.createElement(`p`);
-            date.innerText = game.dates.start.localDate
+            date.innerText = game.dates.start.localDate;
             // Event Time
             const time = document.createElement(`p`);
             time.innerText = game.dates.start.localTime;
