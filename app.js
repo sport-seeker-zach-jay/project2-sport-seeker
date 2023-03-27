@@ -6,7 +6,6 @@ app.getData = (city, sport) => {
     app.url = new URL(`https://proxy.junocollege.com/https://app.ticketmaster.com/discovery/v2/events`);
     app.url.search = new URLSearchParams({
         apikey: app.key,
-        // id: `KZFzniwnSyZfZ7v7nE`,
         city: city,
         classificationName: sport
     });
@@ -85,8 +84,11 @@ app.getUserInput = () => {
     });
 }
 
+app.init = () => {
+    app.getUserInput();
+}
 
-// Display all upcoming sporting events in user's selected city
+app.init();    
 
     // NAME = console.log(game.name)
     // CITY = console.log(game._embedded.venues[0].city.name)
@@ -95,10 +97,3 @@ app.getUserInput = () => {
     // TICKET purchase (link) = console.log(game.url)
     // Seating Map (link) = console.log(game.seatmap.staticUrl)
     // LOGOS (pictures) = console.log(game._embedded.attractions[0].images[0].url) / console.log(game._embedded.attractions[1].images[0].url)
-
-
-app.init = () => {
-    app.getUserInput();
-}
-
-app.init();
