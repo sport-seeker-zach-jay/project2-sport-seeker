@@ -19,6 +19,7 @@ app.getData = (city, sport) => {
         })
         .then(jsonResult => {     
             app.displayData(jsonResult._embedded.events);
+            console.log(jsonResult._embedded.events);
         })
         .catch((error) => {
             if (error.message === `jsonResult._embedded is undefined`) {
@@ -64,6 +65,11 @@ app.displayData = (sportsArray) => {
             tickets.innerText = `Purchase Tickets`;
             tickets.href = game.url;
 
+            // Dislay Home Team Logo
+            const homeTeam = document.createElement(`img`);
+            homeTeam.src = game.images[4].url;
+            homeTeam.alt = `Home Team Logo`;
+
             // Collect all elements together
             listItem.appendChild(event);
             listItem.appendChild(city);
@@ -71,6 +77,7 @@ app.displayData = (sportsArray) => {
             listItem.appendChild(date);
             listItem.appendChild(time);
             listItem.appendChild(tickets);
+            listItem.appendChild(homeTeam);
 
             // Append to container
             results.appendChild(listItem);
