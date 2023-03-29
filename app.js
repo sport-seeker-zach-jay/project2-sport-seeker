@@ -45,39 +45,73 @@ app.displayData = (sportsArray) => {
         sportsArray.forEach((game) => {
             // Container for each event
             const listItem = document.createElement(`li`);
-            // Event Name
-            const event = document.createElement(`p`);
-            event.innerText = game.name;
-            // City / State
-            const city = document.createElement(`p`);
-            city.innerText = `${game._embedded.venues[0].city.name}, ${game._embedded.venues[0].state.name}`;
-            // Arena Name
-            const arena = document.createElement(`p`);
-            arena.innerText = game._embedded.venues[0].name;
+            
+            // Time Container
+            const timeContainer = document.createElement(`div`);
+            timeContainer.classList.add(`timeContainer`);
             // Event Date
             const date = document.createElement(`p`);
             date.innerText = game.dates.start.localDate;
             // Event Time
             const time = document.createElement(`p`);
             time.innerText = game.dates.start.localTime;
+            time.classList.add(`topText`);
+            // Append to timeContainer
+            timeContainer.appendChild(date);
+            timeContainer.appendChild(time);
+
+
+            // Detail Container
+            const detailContainer = document.createElement(`div`);
+            detailContainer.classList.add(`detailContainer`);
+
+            // Event Name
+            const event = document.createElement(`p`);
+            event.classList.add(`event`);
+            event.innerText = game.name;
+
+            // Location Container
+            const locationContainer = document.createElement(`div`);
+            locationContainer.classList.add(`locationContainer`);
+            // City / State
+            const city = document.createElement(`p`);
+            city.innerText = `${game._embedded.venues[0].city.name}, ${game._embedded.venues[0].state.name}       |`;
+            city.classList.add(`topText`);
+            // Arena Name
+            const arena = document.createElement(`p`);
+            arena.innerText = game._embedded.venues[0].name;
+            arena.classList.add(`topText`);
+            // Append to locationContainer
+            locationContainer.appendChild(city);
+            locationContainer.appendChild(arena);
+
+            // Append to detailContainer
+            detailContainer.appendChild(event);
+            detailContainer.appendChild(locationContainer);
+
+
+
+            // Ticket Container
+            const ticketContainer = document.createElement(`div`);
+            ticketContainer.classList.add(`ticketContainer`);
             // Purchase Tickets
             const tickets = document.createElement(`a`);
             tickets.innerText = `Purchase Tickets`;
             tickets.href = game.url;
+            // Append to ticketContainer
+            ticketContainer.appendChild(tickets);
 
-            // Dislay Home Team Logo
-            const homeTeam = document.createElement(`img`);
-            homeTeam.src = game.images[4].url;
-            homeTeam.alt = `Home Team Logo`;
+            // // Dislay Home Team Logo
+            // const homeTeam = document.createElement(`img`);
+            // homeTeam.src = game.images[4].url;
+            // homeTeam.alt = `Home Team Logo`;
 
             // Collect all elements together
-            listItem.appendChild(event);
-            listItem.appendChild(city);
-            listItem.appendChild(arena);
-            listItem.appendChild(date);
-            listItem.appendChild(time);
-            listItem.appendChild(tickets);
-            listItem.appendChild(homeTeam);
+            
+            listItem.appendChild(timeContainer);
+            listItem.appendChild(detailContainer);
+            listItem.appendChild(ticketContainer);
+            // listItem.appendChild(homeTeam);
 
             // Append to container
             results.appendChild(listItem);

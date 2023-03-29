@@ -262,7 +262,7 @@ h2 {
 }
 
 p {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #97FB57;
   line-height: 2.5rem;
 }
@@ -307,7 +307,7 @@ li a {
   border-radius: 10px;
   font-weight: bold;
   line-height: 25px;
-  font-size: 2.25rem;
+  font-size: 1.5rem;
 }
 
 .trim {
@@ -360,6 +360,58 @@ form button {
 }
 form select {
   width: 600px;
+}
+
+li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+li .timeContainer {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+li .detailContainer {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+li .detailContainer .locationContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+li .ticketContainer {
+  width: 30%;
+}
+li .topText {
+  font-size: 1rem;
+  color: #909090;
 }
 
 footer {

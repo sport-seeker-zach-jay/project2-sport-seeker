@@ -11,35 +11,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css">
-    <title>Sport Seeker</title>
+    <title>Sport Seeker🏅</title>
 </head>
 <body>
     <!-- HEADER -->
     <header>
         <div class="trim">
             <img src="./assets/Header.jpeg" alt="Soccer fans cheering in packed stadium">
-        </div>
+        </div><!-- .trim ends -->
         <div class="wrapper">
-            <h1>SPORT SEEKER</h1>        
+            <h1>SP🏀RT SEEKER👀</h1>        
         </div><!-- .wrapper ends -->
-    
     </header>
 
+    <!-- MAIN -->
     <main>
         <div class="wrapper">
-    <!-- PROMPT --> 
+            <!-- PROMPT --> 
             <p>Select your city and favourite sport <br> from the dropdown menus below <br> to view upcoming events in your area!</p>
-        
-        <!-- FORM -->
+            <!-- FORM -->
             <form action="#" method="GET" name="sportSeeker">
-
                 <div class="fields">
                     <!-- CITY PICKER -->
                     <div class="locationForm">
                         <label for="city">LOCATION</label>
                         <select id="city" type="text" name="city">
                             <option value disabled selected>Please choose a city</option>
-                        <!-- Cities -->
+                            <!-- Cities -->
                             <optgroup label="Canada">
                                 <option value="toronto">Toronto</option>
                                 <option value="ottawa">Ottawa</option>
@@ -55,32 +53,29 @@
                                 <option value="washington">Washington D.C.</option>
                             </optgroup>
                         </select>
-                    </div>
+                    </div><!-- .locationForm ends -->
                     <!-- SPORT PICKER -->
                     <div class="sportForm">
                         <label for="sport">SPORT</label>
                         <select id="sport" type="text" name="sport">
                             <option value disabled selected>Please choose your favourite sport</option>
-                        <!-- Sport -->
-                            <option value="basketball">Basketball</option>
-                            <option value="hockey">Hockey</option>
-                            <option value="baseball">Baseball</option>
-                            <option value="football">Football</option>
-                            <option value="soccer">Soccer</option>
+                            <!-- Sport -->
+                            <option value="basketball">Basketball🏀</option>
+                            <option value="hockey">Hockey🏒</option>
+                            <option value="baseball">Baseball⚾</option>
+                            <option value="football">Football🏈</option>
+                            <option value="soccer">Soccer⚽</option>
                         </select>
-                    </div>
-                </div>
-
+                    </div><!-- .sportForm ends -->
+                </div><!-- .field ends -->
                 <button type="submit">GO!</button>
             </form>
-
-        <!-- Appended Results to go here -->
-            
+            <!-- Appended Results to go here -->
             <ul class="results"></ul>
-
         </div><!-- .wrapper ends -->
     </main>
 
+    <!-- FOOTER -->
     <footer>Created at <a href="https://junocollege.com">Juno College</a> &copy;</footer>
     
     <!-- JAVASCRIPT -->
