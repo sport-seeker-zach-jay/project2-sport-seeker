@@ -309,6 +309,9 @@ li a {
   line-height: 25px;
   font-size: 1.5rem;
 }
+li img {
+  margin-top: 5%;
+}
 
 .trim {
   max-height: 400px;
