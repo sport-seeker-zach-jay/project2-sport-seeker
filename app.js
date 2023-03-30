@@ -55,50 +55,54 @@ app.displayData = (sportsArray) => {
             // Event Time
             const time = document.createElement(`p`);
             time.innerText = game.dates.start.localTime;
-            time.classList.add(`topText`);
+            time.classList.add(`bottomText`);
             // Append to timeContainer
             timeContainer.appendChild(date);
             timeContainer.appendChild(time);
 
-
             // Detail Container
             const detailContainer = document.createElement(`div`);
             detailContainer.classList.add(`detailContainer`);
-
             // Event Name
             const event = document.createElement(`p`);
             event.classList.add(`event`);
             event.innerText = game.name;
-
-            // Location Container
-            const locationContainer = document.createElement(`div`);
-            locationContainer.classList.add(`locationContainer`);
             // City / State
             const city = document.createElement(`p`);
-            city.innerText = `${game._embedded.venues[0].city.name}, ${game._embedded.venues[0].state.name}       |`;
-            city.classList.add(`topText`);
+            city.innerText = `${game._embedded.venues[0].city.name}, ${game._embedded.venues[0].state.name}`;
             // Arena Name
             const arena = document.createElement(`p`);
             arena.innerText = game._embedded.venues[0].name;
+
+            // Location Text
+            const locationText = document.createElement(`p`);
+            locationText.classList.add(`locationText`);
+            locationText.innerText = `${game._embedded.venues[0].city.name}, ${game._embedded.venues[0].state.name} | ${game._embedded.venues[0].name}`
+            // Append to detailContainer
+            detailContainer.appendChild(event);
+            detailContainer.appendChild(locationText);
             arena.classList.add(`topText`);    
+          
             // Dislay Home Team Logo
             const homeTeam = document.createElement(`img`);
             homeTeam.src = game.images[7].url;
             homeTeam.alt = `Home Team Logo`;
             // Append to locationContainer
-            locationContainer.appendChild(city);
-            locationContainer.appendChild(arena);
+            // locationContainer.appendChild(city);
+            // locationContainer.appendChild(arena);
 
             // Append to detailContainer
             detailContainer.appendChild(event);
             detailContainer.appendChild(locationContainer);
+
 
             // Ticket Container
             const ticketContainer = document.createElement(`div`);
             ticketContainer.classList.add(`ticketContainer`);
             // Purchase Tickets
             const tickets = document.createElement(`a`);
-            tickets.innerText = `Purchase Tickets`;
+            tickets.classList.add(`purchaseTickets`);
+            tickets.innerText = `Purchase Tickets >`;
             tickets.href = game.url;
             // Append to ticketContainer
             ticketContainer.appendChild(tickets);

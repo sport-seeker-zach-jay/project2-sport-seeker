@@ -40,11 +40,22 @@ label, select {
     font-size: 1.5rem;
     color: $tertiary;
 }
+
 button {
     font-size: 2.25rem;
     background-color: $primary;
     width: 200px;
     border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+        background-color: $secondary;
+        color: $primary;
+    }
+    &:focus {
+        background-color: $secondary;
+        color: $primary;
+    }
 }
 
 option {
@@ -55,6 +66,7 @@ option {
 ul {
     list-style: none;
 }
+
 li {
     font-size: 1.5rem;
     background-color: $quaternary;
@@ -64,16 +76,26 @@ li {
         text-align: left;
         padding-left: 20px;
     }
-    a {
+    & .purchaseTickets {
         text-decoration: none;
         width: 200px;
         height: 25px;
-        background: $primary;
+        background-color: $primary;
         padding: 10px;
         border-radius: 10px;
         font-weight: bold;
-        line-height: 25px;
+        line-height: 2.5rem;
         font-size: 1.5rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease 0s;
+        &:hover {
+            background-color: rgb(116, 192, 68);
+            color: $secondary;
+        }
+        &:focus {
+            background-color: rgb(116, 192, 68);
+            color: $secondary;
+        }
     }
     & img {
         margin-top: 5%;
