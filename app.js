@@ -73,6 +73,7 @@ app.displayData = (sportsArray) => {
             // Arena Name
             const arena = document.createElement(`p`);
             arena.innerText = game._embedded.venues[0].name;
+
             // Location Text
             const locationText = document.createElement(`p`);
             locationText.classList.add(`locationText`);
@@ -80,6 +81,20 @@ app.displayData = (sportsArray) => {
             // Append to detailContainer
             detailContainer.appendChild(event);
             detailContainer.appendChild(locationText);
+            arena.classList.add(`topText`);    
+          
+            // Dislay Home Team Logo
+            const homeTeam = document.createElement(`img`);
+            homeTeam.src = game.images[7].url;
+            homeTeam.alt = `Home Team Logo`;
+            // Append to locationContainer
+            // locationContainer.appendChild(city);
+            // locationContainer.appendChild(arena);
+
+            // Append to detailContainer
+            detailContainer.appendChild(event);
+            detailContainer.appendChild(locationContainer);
+
 
             // Ticket Container
             const ticketContainer = document.createElement(`div`);
@@ -91,17 +106,13 @@ app.displayData = (sportsArray) => {
             tickets.href = game.url;
             // Append to ticketContainer
             ticketContainer.appendChild(tickets);
+            ticketContainer.appendChild(homeTeam)
 
-            // // Dislay Home Team Logo
-            // const homeTeam = document.createElement(`img`);
-            // homeTeam.src = game.images[4].url;
-            // homeTeam.alt = `Home Team Logo`;
 
             // Collect all elements together
             listItem.appendChild(timeContainer);
             listItem.appendChild(detailContainer);
             listItem.appendChild(ticketContainer);
-            // listItem.appendChild(homeTeam);
 
             // Append to container
             results.appendChild(listItem);

@@ -331,6 +331,9 @@ li .purchaseTickets:focus {
   background-color: rgb(116, 192, 68);
   color: #121212;
 }
+li img {
+  margin-top: 5%;
+}
 
 .trim {
   max-height: 400px;
