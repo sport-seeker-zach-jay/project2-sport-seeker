@@ -86,7 +86,8 @@ app.displayData = (sportsArray) => {
             ticketContainer.classList.add(`ticketContainer`);
             // Purchase Tickets
             const tickets = document.createElement(`a`);
-            tickets.innerText = `Purchase Tickets`;
+            tickets.classList.add(`purchaseTickets`);
+            tickets.innerText = `Purchase Tickets >`;
             tickets.href = game.url;
             // Append to ticketContainer
             ticketContainer.appendChild(tickets);
