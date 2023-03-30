@@ -397,19 +397,14 @@ li .detailContainer {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-li .detailContainer .locationContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+li .detailContainer .locationText {
+  font-size: 1rem;
+  color: #909090;
 }
 li .ticketContainer {
   width: 30%;
 }
-li .topText {
+li .bottomText {
   font-size: 1rem;
   color: #909090;
 }
