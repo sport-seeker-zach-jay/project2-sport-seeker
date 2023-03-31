@@ -1,3 +1,12 @@
+// API DATA SETS 
+// NAME = console.log(game.name)
+// CITY = console.log(game._embedded.venues[0].city.name)
+// ARENA = console.log(game._embedded.venues[0].name)
+// DATE = console.log(game.dates.start.localDate) / console.log(game.dates.start.localTime)
+// TICKET purchase (link) = console.log(game.url)
+// Seating Map (link) = console.log(game.seatmap.staticUrl)
+// LOGOS (pictures) = console.log(game._embedded.attractions[0].images[0].url) / console.log(game._embedded.attractions[1].images[0].url)
+
 const app = {};
 
 // Method that grabs Data from API
@@ -19,7 +28,6 @@ app.getData = (city, sport) => {
         })
         .then(jsonResult => {     
             app.displayData(jsonResult._embedded.events);
-            console.log(jsonResult._embedded.events);
         })
         .catch((error) => {
             if (error.message === `jsonResult._embedded is undefined`) {
@@ -46,12 +54,13 @@ app.displayData = (sportsArray) => {
             // Container for each event
             const listItem = document.createElement(`li`);
             
-            // Time Container
+            // TIME CONTAINER
             const timeContainer = document.createElement(`div`);
             timeContainer.classList.add(`timeContainer`);
             // Event Date
             const date = document.createElement(`p`);
             date.innerText = game.dates.start.localDate;
+            
             // Event Time
             const time = document.createElement(`p`);
             time.innerText = game.dates.start.localTime;
@@ -60,7 +69,7 @@ app.displayData = (sportsArray) => {
             timeContainer.appendChild(date);
             timeContainer.appendChild(time);
 
-            // Detail Container
+            // DETAIL CONTAINER
             const detailContainer = document.createElement(`div`);
             detailContainer.classList.add(`detailContainer`);
             // Event Name
@@ -80,30 +89,23 @@ app.displayData = (sportsArray) => {
             locationText.innerText = `${game._embedded.venues[0].city.name}, ${game._embedded.venues[0].state.name} | ${game._embedded.venues[0].name}`
             // Append to detailContainer
             detailContainer.appendChild(event);
-            detailContainer.appendChild(locationText);
-            arena.classList.add(`topText`);    
+            detailContainer.appendChild(locationText);   
           
-            // Dislay Home Team Logo
-            const homeTeam = document.createElement(`img`);
-            homeTeam.src = game.images[7].url;
-            homeTeam.alt = `Home Team Logo`;
-            // Append to locationContainer
-            // locationContainer.appendChild(city);
-            // locationContainer.appendChild(arena);
-
-            // Append to detailContainer
-            detailContainer.appendChild(event);
-            detailContainer.appendChild(locationContainer);
-
-
-            // Ticket Container
+            // TICKET CONTAINER
             const ticketContainer = document.createElement(`div`);
             ticketContainer.classList.add(`ticketContainer`);
+          
             // Purchase Tickets
             const tickets = document.createElement(`a`);
             tickets.classList.add(`purchaseTickets`);
             tickets.innerText = `Purchase Tickets >`;
             tickets.href = game.url;
+
+            // Dislay Home Team Logo
+            const homeTeam = document.createElement(`img`);
+            homeTeam.src = game.images[7].url;
+            homeTeam.alt = `Home Team Logo`;
+            
             // Append to ticketContainer
             ticketContainer.appendChild(tickets);
             ticketContainer.appendChild(homeTeam)
@@ -117,8 +119,6 @@ app.displayData = (sportsArray) => {
             // Append to container
             results.appendChild(listItem);
         }); 
-        
-    // });
 }
 // Method that grabs User's Dropdown menu selections
 app.getUserInput = () => {
@@ -147,10 +147,3 @@ app.init = () => {
 
 app.init();    
 
-    // NAME = console.log(game.name)
-    // CITY = console.log(game._embedded.venues[0].city.name)
-    // ARENA = console.log(game._embedded.venues[0].name)
-    // DATE = console.log(game.dates.start.localDate) / console.log(game.dates.start.localTime)
-    // TICKET purchase (link) = console.log(game.url)
-    // Seating Map (link) = console.log(game.seatmap.staticUrl)
-    // LOGOS (pictures) = console.log(game._embedded.attractions[0].images[0].url) / console.log(game._embedded.attractions[1].images[0].url)
