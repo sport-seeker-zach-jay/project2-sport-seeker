@@ -1,3 +1,4 @@
+
 // FONTS
 .wrapper {
     max-width: 1440px;
@@ -78,14 +79,16 @@ li {
     }
     & .purchaseTickets {
         text-decoration: none;
-        width: 200px;
-        height: 25px;
+        display: block;
         background-color: $primary;
         padding: 10px;
         border-radius: 10px;
         font-weight: bold;
         line-height: 2.5rem;
-        font-size: 1.5rem;
+        font-size: 1rem;
+        text-align: center;
+        white-space: nowrap;
+        // width: 300px; include in MEDIA QUERY
         cursor: pointer;
         transition: background-color 0.2s ease 0s;
         &:hover {
