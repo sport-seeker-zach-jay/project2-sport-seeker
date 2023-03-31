@@ -1,11 +1,11 @@
 // API DATA SETS 
-// NAME = console.log(game.name)
-// CITY = console.log(game._embedded.venues[0].city.name)
-// ARENA = console.log(game._embedded.venues[0].name)
-// DATE = console.log(game.dates.start.localDate) / console.log(game.dates.start.localTime)
-// TICKET purchase (link) = console.log(game.url)
-// Seating Map (link) = console.log(game.seatmap.staticUrl)
-// LOGOS (pictures) = console.log(game._embedded.attractions[0].images[0].url) / console.log(game._embedded.attractions[1].images[0].url)
+// NAME = game.name
+// CITY = game._embedded.venues[0].city.name
+// ARENA = game._embedded.venues[0].name
+// DATE = game.dates.start.localDate) / game.dates.start.localTime)
+// TICKET purchase (link) = game.url)
+// Seating Map (link) = game.seatmap.staticUrl)
+// LOGOS (pictures) = game._embedded.attractions[0].images[0].url / game._embedded.attractions[1].images[0].url
 
 const app = {};
 
@@ -103,7 +103,7 @@ app.displayData = (sportsArray) => {
 
             // Dislay Home Team Logo
             const homeTeam = document.createElement(`img`);
-            homeTeam.src = game.images[7].url;
+            homeTeam.src = game.images[6].url;
             homeTeam.alt = `Home Team Logo`;
             
             // Append to ticketContainer
