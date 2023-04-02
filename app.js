@@ -60,14 +60,14 @@ app.displayData = (sportsArray) => {
             // Event Date
             const date = document.createElement(`p`);
             date.innerText = game.dates.start.localDate;
-            
             // Event Time
-            const time = document.createElement(`p`);
-            time.innerText = game.dates.start.localTime;
-            time.classList.add(`bottomText`);
+            const time = app.tConvert(game.dates.start.localTime); // Calls the tConvert Method
+            const convertedTime = document.createElement(`p`);
+            convertedTime.innerText = time;
+            convertedTime.classList.add(`bottomText`);
             // Append to timeContainer
             timeContainer.appendChild(date);
-            timeContainer.appendChild(time);
+            timeContainer.appendChild(convertedTime);
 
             // DETAIL CONTAINER
             const detailContainer = document.createElement(`div`);
@@ -110,7 +110,6 @@ app.displayData = (sportsArray) => {
             ticketContainer.appendChild(tickets);
             ticketContainer.appendChild(homeTeam)
 
-
             // Collect all elements together
             listItem.appendChild(timeContainer);
             listItem.appendChild(detailContainer);
@@ -120,6 +119,19 @@ app.displayData = (sportsArray) => {
             results.appendChild(listItem);
         }); 
 }
+
+// Method which converts Event times in API Data (24-hour clock) to a more standard, user-friendly 12-hour clock
+app.tConvert = (time) => {
+    time = time.toString().match (/^([01]\d|2[0-3])(:)([0-5]\d)/) || [time];
+
+    if (time.length > 1) {
+        time = time.slice (1);
+        time[5] =+ time[0] < 12 ? `AM` : ` PM`;
+        time[0] =+ time[0] % 12 || 12;
+    }
+    return time.join (``);
+}
+
 // Method that grabs User's Dropdown menu selections
 app.getUserInput = () => {
     // target form
