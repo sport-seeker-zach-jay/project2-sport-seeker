@@ -65,7 +65,7 @@ app.displayData = (sportsArray) => {
                 day: `numeric`,
                 year: `numeric`
             }
-            const userFriendlyDate = date.toLocaleDateString(`en-US`, options)
+            const userFriendlyDate = date.toLocaleDateString(`en-US`, options);
             const convertedDate = document.createElement(`p`);
             convertedDate.innerText = userFriendlyDate;
             // Event Time
@@ -128,7 +128,6 @@ app.displayData = (sportsArray) => {
 // Method which converts Event times in API Data (24-hour clock) to a more standard, user-friendly 12-hour clock
 app.tConvert = (time) => {
     time = time.toString().match (/^([01]\d|2[0-3])(:)([0-5]\d)/) || [time];
-
     if (time.length > 1) {
         time = time.slice (1);
         time[5] =+ time[0] < 12 ? `AM` : ` PM`;
