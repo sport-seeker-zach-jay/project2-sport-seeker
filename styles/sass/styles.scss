@@ -1,0 +1,23 @@
+// COLOURS:
+// primary: #97FB57;
+// secondary: #121212;
+// tertiary: #909090;
+// quaternary: #F6F2F2;
+
+// FONT SIZES:
+// h1: 100px
+// h2: 60px
+// p: 30px
+// label: 30px
+// select: 30px
+// button: 45px
+// option: 36px
+// li: 30px
+
+@import "./partials/variables";
+@import "./partials/setup";
+@import "./partials/baseStyles";
+@import "./partials/header";
+@import "./partials/main"; 
+@import "./partials/footer";
+@import "./partials/mediaQueries";

@@ -1,0 +1,107 @@
+// FONTS
+.wrapper {
+    max-width: 1440px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+html {
+    font-size: 125%;
+    background-color: $secondary;
+}
+
+h1, h2, p, a {
+    font-family: $mainFont;
+    text-align: center;
+}
+
+button, select, label, li {
+    font-family: $formFont;
+}
+
+// SIZES AND COLORS
+h1 {
+    font-size: 5rem;
+    color: $tertiary;
+}
+
+h2 {
+    font-size: 3rem;
+    color: $tertiary;
+}
+
+p {
+    font-size: 1.5rem;
+    color: $primary;
+    line-height: 2.5rem;
+}
+
+label, select {
+    font-size: 1.5rem;
+    color: $tertiary;
+}
+
+button {
+    font-size: 2.25rem;
+    background-color: $primary;
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+        background-color: $secondary;
+        color: $primary;
+    }
+    &:focus {
+        background-color: $secondary;
+        color: $primary;
+    }
+}
+
+option {
+    font-size: 1.8rem;
+    color: $tertiary;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    font-size: 1.5rem;
+    background-color: $quaternary;
+    border-radius: 10px;
+    & p, a {
+        color: $secondary;
+        text-align: left;
+        padding-left: 20px;
+    }
+    & .purchaseTickets {
+        text-decoration: none;
+        display: block;
+        background-color: $primary;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        line-height: 2.5rem;
+        font-size: 1rem;
+        text-align: center;
+        white-space: nowrap;
+        cursor: pointer;
+        transition: background-color 0.2s ease 0s;
+        &:hover {
+            background-color: rgb(116, 192, 68);
+            color: $secondary;
+        }
+        &:focus {
+            background-color: rgb(116, 192, 68);
+            color: $secondary;
+        }
+    }
+    & img {
+        margin-top: 5%;
+    }
+}
+
+
+

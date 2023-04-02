@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Revalia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Sport Seeker🏅</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="trim">
+            <img src="./assets/Header.jpeg" alt="Soccer fans cheering in packed stadium">
+        </div><!-- .trim ends -->
+        <div class="wrapper">
+            <h1 aria-label="Sport Seeker">SP🏀RT SEEKER👀</h1>      
+        </div><!-- .wrapper ends -->
+    </header>
 
+    <!-- MAIN -->
+    <main>
+        <div class="wrapper">
+            <!-- PROMPT --> 
+            <p>Select your city and favourite sport <br> from the dropdown menus below <br> to view upcoming events in your area!</p>
+            <!-- FORM -->
+            <form action="#" method="GET" name="sportSeeker">
+                <div class="fields">
+                    <!-- CITY PICKER -->
+                    <div class="locationForm">
+                        <label for="city">LOCATION</label>
+                        <select id="city" type="text" name="city">
+                            <option value disabled selected>Please choose a city</option>
+                            <!-- Cities -->
+                            <optgroup label="Canada">
+                                <option value="toronto">Toronto</option>
+                                <option value="ottawa">Ottawa</option>
+                                <option value="vancouver">Vancouver</option>
+                                <option value="montreal">Montreal</option>
+                                <option value="calgary">Calgary</option>
+                            </optgroup>
+                            <optgroup label="United States">
+                                <option value="new york, bronx">New York City</option>
+                                <option value="los angeles">Los Angeles</option>
+                                <option value="chicago">Chicago</option>
+                                <option value="houston">Houston</option>
+                                <option value="washington">Washington D.C.</option>
+                            </optgroup>
+                        </select>
+                    </div><!-- .locationForm ends -->
+                    <!-- SPORT PICKER -->
+                    <div class="sportForm">
+                        <label for="sport">SPORT</label>
+                        <select id="sport" type="text" name="sport">
+                            <option value disabled selected>Please choose your favourite sport</option>
+                            <!-- Sport -->
+                            <option value="basketball">Basketball🏀</option>
+                            <option value="hockey">Hockey🏒</option>
+                            <option value="baseball">Baseball⚾</option>
+                            <option value="football">Football🏈</option>
+                            <option value="soccer">Soccer⚽</option>
+                        </select>
+                    </div><!-- .sportForm ends -->
+                </div><!-- .field ends -->
+                <button type="submit">GO!</button>
+            </form>
+            <!-- Appended Results to go here -->
+            <ul class="results"></ul>
+        </div><!-- .wrapper ends -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer>Created at <a href="https://junocollege.com">Juno College</a> &copy;</footer>
+    
+    <!-- JAVASCRIPT -->
+    <script src="app.js"></script>
+</body>
+
+</html>

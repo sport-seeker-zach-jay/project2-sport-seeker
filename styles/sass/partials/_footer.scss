@@ -1,0 +1,11 @@
+footer {
+    color: $primary;
+    height: 5vh;
+    text-align: center;
+    padding: 5px 0;
+    font-family: $formFont;
+    & a {
+        text-decoration: none;
+        color: $primary;
+    }
+}
