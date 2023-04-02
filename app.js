@@ -58,15 +58,23 @@ app.displayData = (sportsArray) => {
             const timeContainer = document.createElement(`div`);
             timeContainer.classList.add(`timeContainer`);
             // Event Date
-            const date = document.createElement(`p`);
-            date.innerText = game.dates.start.localDate;
+            const date = new Date(game.dates.start.localDate);
+            const options = {
+                weekday: `short`,
+                month: `short`,
+                day: `numeric`,
+                year: `numeric`
+            }
+            const userFriendlyDate = date.toLocaleDateString(`en-US`, options)
+            const convertedDate = document.createElement(`p`);
+            convertedDate.innerText = userFriendlyDate;
             // Event Time
             const time = app.tConvert(game.dates.start.localTime); // Calls the tConvert Method
             const convertedTime = document.createElement(`p`);
             convertedTime.innerText = time;
             convertedTime.classList.add(`bottomText`);
             // Append to timeContainer
-            timeContainer.appendChild(date);
+            timeContainer.appendChild(convertedDate);
             timeContainer.appendChild(convertedTime);
 
             // DETAIL CONTAINER
@@ -82,11 +90,10 @@ app.displayData = (sportsArray) => {
             // Arena Name
             const arena = document.createElement(`p`);
             arena.innerText = game._embedded.venues[0].name;
-
             // Location Text
             const locationText = document.createElement(`p`);
             locationText.classList.add(`locationText`);
-            locationText.innerText = `${game._embedded.venues[0].city.name}, ${game._embedded.venues[0].state.name} | ${game._embedded.venues[0].name}`
+            locationText.innerText = `${game._embedded.venues[0].city.name}, ${game._embedded.venues[0].state.name} | ${game._embedded.venues[0].name}`;
             // Append to detailContainer
             detailContainer.appendChild(event);
             detailContainer.appendChild(locationText);   
@@ -94,18 +101,16 @@ app.displayData = (sportsArray) => {
             // TICKET CONTAINER
             const ticketContainer = document.createElement(`div`);
             ticketContainer.classList.add(`ticketContainer`);
-          
             // Purchase Tickets
             const tickets = document.createElement(`a`);
             tickets.classList.add(`purchaseTickets`);
             tickets.innerText = `Purchase Tickets >`;
             tickets.href = game.url;
-
+            tickets.target =`_blank`
             // Dislay Home Team Logo
             const homeTeam = document.createElement(`img`);
             homeTeam.src = game.images[6].url;
             homeTeam.alt = `Home Team Logo`;
-            
             // Append to ticketContainer
             ticketContainer.appendChild(tickets);
             ticketContainer.appendChild(homeTeam)
