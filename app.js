@@ -30,7 +30,7 @@ app.getData = (city, sport) => {
             app.displayData(jsonResult._embedded.events);
         })
         .catch((error) => {
-            if (error.message === `jsonResult._embedded is undefined`) {
+            if (error.message === `jsonResult._embedded is undefined` || `Cannot read properties of undefined(reading 'events')` || `Unhandled Promise Rejection: TypeError: undefined is not an object (evaluating 'jsonResult._embedded.events')`) {
                 const results = document.querySelector(`.results`);
                 results.innerHTML = ``;
                 const errorMessage = document.createElement(`h2`);
