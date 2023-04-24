@@ -388,6 +388,10 @@ form select {
   width: 600px;
 }
 
+p span {
+  display: block;
+}
+
 li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -504,5 +508,6 @@ footer a {
   }
   form select {
     width: 250px;
+    font-size: 0.6rem;
   }
 }

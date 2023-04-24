@@ -125,7 +125,7 @@ app.displayData = (sportsArray) => {
         }); 
 }
 
-// Method which converts Event times in API Data (24-hour clock) to a more standard, user-friendly 12-hour clock
+// Method which converts Event times in API Data (24-hour clock) to a more standard, user-friendly 12-hour clock - thank you to HBP for the time converter function
 app.tConvert = (time) => {
     time = time.toString().match (/^([01]\d|2[0-3])(:)([0-5]\d)/) || [time];
     if (time.length > 1) {

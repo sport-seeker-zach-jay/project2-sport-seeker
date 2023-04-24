@@ -20,7 +20,7 @@
             <img src="./assets/Header.jpeg" alt="Soccer fans cheering in packed stadium">
         </div><!-- .trim ends -->
         <div class="wrapper">
-            <h1 aria-label="Sport Seeker">SP🏀RT SEEKER👀</h1>      
+            <h1 aria-label="Sport Seeker">SP<span role="img" aria-label="Basketbal">🏀</span>RT SEEKER<span role="img" aria-label="Eyes Emoji">👀</span></h1>      
         </div><!-- .wrapper ends -->
     </header>
 
@@ -28,7 +28,7 @@
     <main>
         <div class="wrapper">
             <!-- PROMPT --> 
-            <p>Select your city and favourite sport <br> from the dropdown menus below <br> to view upcoming events in your area!</p>
+            <p>Select your city and favourite sport <span> from the dropdown menus below <span> to view upcoming events in your area!</p>
             <!-- FORM -->
             <form action="#" method="GET" name="sportSeeker">
                 <div class="fields">
@@ -60,11 +60,11 @@
                         <select id="sport" type="text" name="sport">
                             <option value disabled selected>Please choose your favourite sport</option>
                             <!-- Sport -->
-                            <option value="basketball">Basketball🏀</option>
-                            <option value="hockey">Hockey🏒</option>
-                            <option value="baseball">Baseball⚾</option>
-                            <option value="football">Football🏈</option>
-                            <option value="soccer">Soccer⚽</option>
+                            <option value="basketball">Basketball <span role="img" aria-label="Basketball">🏀</span></option>
+                            <option value="hockey">Hockey <span role="img" aria-label="Hockey Stick">🏒</span></option>
+                            <option value="baseball">Baseball <span role="img" aria-label="Baseball">⚾</span></option>
+                            <option value="football">Football <span role="img" aria-label="Football">🏈</span></option>
+                            <option value="soccer">Soccer <span role="img" aria-label="Soccer Ball">⚽</span></option>
                         </select>
                     </div><!-- .sportForm ends -->
                 </div><!-- .field ends -->
